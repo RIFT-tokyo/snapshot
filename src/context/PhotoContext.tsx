@@ -1,25 +1,10 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
+import * as React from "react";
 import axios from "axios";
 import { apiKey } from "../api/config";
+import { image, photoContextType } from "../types/image";
+
 export const PhotoContext = createContext<photoContextType>({} as photoContextType);
-
-type photoContextType = {
-  images: image[]
-  loading: boolean
-  runSearch: (query: string) => void
-};
-
-type image = {
-  id: string
-  owner: string
-  secret: string
-  server: string
-  farm: number
-  title: string
-  ispublic: number
-  isfriend: number
-  isfamily: number
-};
 
 const PhotoContextProvider: React.FC = (props) => {
   const [images, setImages] = useState<image[]>([]);
