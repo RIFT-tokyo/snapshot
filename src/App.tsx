@@ -1,10 +1,16 @@
 import React from 'react';
-import PhotoContextProvider from "./context/PhotoContext"
+import Header from './components/Header';
+import PhotoContextProvider from "./context/PhotoContext";
 
-const App: React.VoidFunctionComponent = () => {
+const App: React.VoidFunctionComponent = (props) => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  }
+
   return (
     <div className="App">
       <PhotoContextProvider>
+        <Header handleSubmit={handleSubmit} />
       </PhotoContextProvider>
     </div>
   );
