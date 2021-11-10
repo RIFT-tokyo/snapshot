@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import * as React from 'react';
+import { NavigateFunction } from 'react-router';
 
-const Form: React.VFC<{ handleSubmit: React.FormEventHandler }> = ({ handleSubmit }) => {
+const Form: React.VFC<{ handleSubmit: (e: React.FormEvent, navigate: NavigateFunction, searchInput: string) => void, navigate: NavigateFunction }> = ({ handleSubmit, navigate }) => {
 	const [searchEntry, setSearchEntry] = useState("");
 
 	return (
-		<form className="search-form" onSubmit={e => handleSubmit(e)}>
+		<form className="search-form" onSubmit={e => handleSubmit(e, navigate, searchEntry)}>
 			<input
 				type="text"
 				name="search"
