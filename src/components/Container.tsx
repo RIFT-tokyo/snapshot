@@ -7,7 +7,8 @@ const Container: React.VFC<{searchTerm: string}> = ({ searchTerm }) => {
 
   useEffect(() => {
     runSearch(searchTerm);
-  }, [runSearch, searchTerm]);
+    // eslint-disable-next-line
+  }, [searchTerm]);
 
   return (
     <div className="photo-container">
